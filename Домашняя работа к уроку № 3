@@ -1,0 +1,114 @@
+# 1. Реализовать функцию, принимающую два числа (позиционные аргументы) и выполняющую их деление.
+# Числа запрашивать у пользователя, предусмотреть обработку ситуации деления на ноль.
+def division_two_argument(arg_one, arg_two):
+    """"Делимое – это то целое число, которое делят. Делитель – это целое число, на которое делят.
+Результатом такой операции является частное."""
+    print(division_two_argument.__doc__)
+
+    while arg_two == 0:
+        print("Введите делитель не равный 0:  ")
+        arg_two = int(input("Введите делитель: "))
+        return arg_one // arg_two
+        if arg_two < 0:
+            return arg_one // arg_two
+        elif arg_two > 0:
+            return arg_one // arg_two
+
+arg_one = int(input("Введите делимое:  "))
+arg_two = int(input("Введите делитель:  "))
+
+res = division_two_argument(arg_one, arg_two)
+print("result", res)
+
+# 2. Реализовать функцию, принимающую несколько параметров, описывающих данные пользователя:
+# имя, фамилия, год рождения, город проживания, email, телефон.
+# Функция должна принимать параметры как именованные аргументы.
+# Реализовать вывод данных о пользователе одной строкой.
+
+def make_anketa(name=None, surname=None,year=None, city=None, email=None, telephone=None):
+   return name, surname,year, city, email, telephone
+name = str(input('Введите ваше имя: '))
+surname = str(input('Введите ваше фамилию: '))
+year = int(input('Введите дату рождения ДДММГГГГ: '))
+city = str(input('Введите город проживания: '))
+email = str(input('Введите ваш email: '))
+telephone = int(input('Введите ваш номер в формате +7:'))
+res = make_anketa(name, surname, year, city, email, telephone)
+print('', res)
+
+# 3. Реализовать функцию my_func(), которая принимает три позиционных аргумента,
+# и возвращает сумму наибольших двух аргументов.
+
+def my_func(arg1, arg2, arg3):
+    if arg1 >= arg3 and arg2 >= arg3:
+        return arg1 + arg2
+    elif arg1 > arg2 and arg1 <= arg3:
+        return arg1 + arg3
+    else:
+        return arg2 + arg3
+
+print('Вводимые значения должно быть целыми числами. Пример: 1 7 7')
+arg1 = int(input("Введите значение первого аргумента: "))
+arg2 = int(input("Введите значение второго аргумента: "))
+arg3 = int(input("Введите значение третьего аргумента: "))
+
+max_sum_arg = my_func(arg1, arg2, arg3)
+
+print('Result', max_sum_arg)
+
+# 4. Программа принимает действительное положительное число x и целое отрицательное число y.
+# Необходимо выполнить возведение числа x в степень y.
+# Задание необходимо реализовать в виде функции my_func(x, y).
+# При решении задания необходимо обойтись без встроенной функции возведения числа в степень.
+
+def my_func(a, n):
+    return a ** abs(n)
+    if n == 0:
+        print('НЕТ')
+    else:
+        return a ** abs(n)
+print(f'Result {pow(int(input("Введите значение первого аргумента: ")),(int(input("Введите значение второго аргумента: "))))}')
+
+
+
+def my_fun1(x, y):
+    while y == 0:
+        print('Значение не может быть 0')
+        y = int(input("Введите значение второго аргумента: "))
+        return pow(x, y)
+    if y < 0:
+        return pow(x, y)
+    elif y > 0:
+        return pow(x, y)
+x = int(input("Введите значение первого аргумента: "))
+y = int(input("Введите значение второго аргумента: "))
+ans = my_fun1(x, y)
+print(ans)
+
+
+# 5. Программа запрашивает у пользователя строку чисел, разделенных пробелом.
+# При нажатии Enter должна выводиться сумма чисел. Пользователь может продолжить ввод чисел,
+# разделенных пробелом и снова нажать Enter.
+# Сумма вновь введенных чисел будет добавляться к уже подсчитанной сумме.
+# Но если вместо числа вводится специальный символ, выполнение программы завершается.
+# Если специальный символ введен после нескольких чисел,
+# то вначале нужно добавить сумму этих чисел к полученной ранее сумме и после этого завершить программу.
+
+def my_sum ():
+    sum_res = 0
+    ex = False
+    while ex == False:
+        number = input('Input numbers or Q for quit - ').split()
+
+        res = 0
+        for el in range(len(number)):
+            if number[el] == 'q' or number[el] == 'Q':
+                ex = True
+                break
+            else:
+                res = res + int(number[el])
+        sum_res = sum_res + res
+        print(f'Current sum is {sum_res}')
+    print(f'Your final sum is {sum_res}')
+
+my_sum()
